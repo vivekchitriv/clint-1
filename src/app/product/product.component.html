@@ -1,0 +1,70 @@
+<h5>Product Management</h5>
+
+<div class="row">
+  
+  <!-- get input from user -->
+  <div class="col-md-4">
+    <h5>Add Product</h5>
+    <div class="form">
+      <div class="form-group">
+        <label for="">Title</label>
+        <input [(ngModel)]="title" type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="">Description</label>
+        <input [(ngModel)]="description" type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="">Price</label>
+        <input [(ngModel)]="price" type="number" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="">Company</label>
+        <select [(ngModel)]="company" class="form-control">
+          <option value="Apple">Apple</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Amazon">Amazon</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button (click)="onAdd()" class="btn btn-success">Add</button>
+        <button (click)="onCancel()" class="btn btn-danger float-right">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- list of products -->
+  <div class="col-md-8">
+    <h5>List of Products</h5>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Company</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; let i = index">
+          <td>{{i + 1}}</td>
+          <td>{{product.title}}</td>
+          <td>{{product.description}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.company}}</td>
+          <td>
+            <button (click)="onDelete(i)" class="btn btn-sm btn-danger">delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
